@@ -42,14 +42,14 @@ fi
 
 cd $GITDIR/build/gcc
 
-make --jobs=$(nproc) all 2>&1 | tee gcc_make.log
+make --jobs=$(nproc) all-gcc 2>&1 | tee gcc_make.log
 
 if [ $? != 0 ]; then
   echo "Error: building gcc";
   exit 1;
 fi
 
-make install-strip 2>&1 | tee gcc_install.log
+make install-gcc 2>&1 | tee gcc_install.log
 
 if [ $? != 0 ]; then
   echo "Error: installing gcc";

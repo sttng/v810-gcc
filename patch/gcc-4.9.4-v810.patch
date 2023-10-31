@@ -6071,7 +6071,7 @@ diff -Naur gcc-4.9.4-pure/libgcc/config/v810/lib1funcs.S gcc-4.9.4/libgcc/config
 diff -Naur gcc-4.9.4-pure/libgcc/config/v810/t-v810 gcc-4.9.4/libgcc/config/v810/t-v810
 --- gcc-4.9.4-pure/libgcc/config/v810/t-v810	1969-12-31 19:00:00.000000000 -0500
 +++ gcc-4.9.4/libgcc/config/v810/t-v810	2022-02-27 14:57:28.868573400 -0500
-@@ -0,0 +1,11 @@
+@@ -0,0 +1,12 @@
 +LIB1ASMSRC = v810/lib1funcs.S
 +LIB1ASMFUNCS	= \
 +		  _save_warn_fp \
@@ -6083,6 +6083,7 @@ diff -Naur gcc-4.9.4-pure/libgcc/config/v810/t-v810 gcc-4.9.4/libgcc/config/v810
 +		  _muldi3
 +
 +HOST_LIBGCC2_CFLAGS += -O2 -fomit-frame-pointer -mno-prolog-function
++CRTSTUFF_T_CFLAGS += "-DUSE_TM_CLONE_REGISTRY=0"
 diff -Naur gcc-4.9.4-pure/libgcc/config.host gcc-4.9.4/libgcc/config.host
 --- gcc-4.9.4-pure/libgcc/config.host	2016-05-17 02:22:28.000000000 -0400
 +++ gcc-4.9.4/libgcc/config.host	2022-02-27 14:57:28.871573600 -0500
@@ -6096,12 +6097,13 @@ diff -Naur gcc-4.9.4-pure/libgcc/config.host gcc-4.9.4/libgcc/config.host
  v850*-*-*)
  	cpu_type=v850
  	;;
-@@ -1192,6 +1195,9 @@
+@@ -1192,6 +1195,10 @@
  	tmake_file="${tmake_file} tilepro/t-crtstuff t-softfp-sfdf t-softfp tilepro/t-tilepro"
  	md_unwind_header=tilepro/linux-unwind.h
          ;;
 +v810*-*-*)
 +	tmake_file="${tmake_file} v810/t-v810 t-fdpbit"
++	extra_parts="$extra_parts crtbegin.o crtend.o"
 +	;;
  v850*-*-*)
  	tmake_file="${tmake_file} v850/t-v850 t-fdpbit"

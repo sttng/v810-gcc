@@ -178,11 +178,13 @@ $SRCDIR/configure                              \
   --disable-libgomp                            \
   --disable-libitm                             \
   --disable-libssp                             \
-  --disable-libstdc++-v3                       \
+  --disable-libstdcxx-pch                      \
+  --disable-libstdcxx-verbose                  \
   --disable-libquadmath                        \
   --disable-lto                                \
   --enable-frame-pointer                       \
-  --enable-languages=c                         \
+  --enable-initfini-array                      \
+  --enable-languages=c,c++                     \
   2>&1 | tee gcc_configure.log
 
 cd ../../

@@ -52,10 +52,6 @@ if [ ! -d gcc-4.9.4 ] ; then
   exit 1
 fi
 
-if [ -d build/gcc ] ; then
-  rm -rf build/gcc
-fi
-
 #---------------------------------------------------------------------------------
 # Set the target compiler flags
 #---------------------------------------------------------------------------------
@@ -102,27 +98,6 @@ cd $TMPDIR
 #
 # Enable frame-pointer on V810 by default (disabled with -O, -O2, -O3, -Os).
 # Frame pointer always enabled when -mprolog-function is used.
-
-$SRCDIR/configure                              \
-  $BUILD --target=$TARGET                      \
-  --prefix=$DSTDIR                             \
-  --with-local-prefix=$DESTDIR                 \
-  --with-native-system-header=$DESTDIR/include \
-  --disable-shared                             \
-  --enable-static                              \
-  --disable-pedantic                           \
-  --disable-nls                                \
-  --disable-multilib                           \
-  --disable-decimal-float                      \
-  --disable-libgomp                            \
-  --disable-libitm                             \
-  --disable-libssp                             \
-  --disable-libstdc++-v3                       \
-  --disable-libquadmath                        \
-  --disable-lto                                \
-  --enable-frame-pointer                       \
-  --enable-languages=c,c++                     \
-  2>&1 | tee gcc_configure.log
 
 cd ../../
 
