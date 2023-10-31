@@ -3363,7 +3363,7 @@ diff -Naur gcc-4.9.4-pure/gcc/config/v810/v810.c gcc-4.9.4/gcc/config/v810/v810.
 diff -Naur gcc-4.9.4-pure/gcc/config/v810/v810.h gcc-4.9.4/gcc/config/v810/v810.h
 --- gcc-4.9.4-pure/gcc/config/v810/v810.h	1969-12-31 19:00:00.000000000 -0500
 +++ gcc-4.9.4/gcc/config/v810/v810.h	2022-03-03 10:28:51.191740300 -0500
-@@ -0,0 +1,877 @@
+@@ -0,0 +1,874 @@
 +/* Definitions of target machine for GNU compiler. NEC V810 series
 +   Copyright (C) 1996-2014 Free Software Foundation, Inc.
 +   Contributed by Jeff Law (law@cygnus.com).
@@ -3463,9 +3463,6 @@ diff -Naur gcc-4.9.4-pure/gcc/config/v810/v810.h gcc-4.9.4/gcc/config/v810/v810.
 +
 +/* The V810 only supports single-precision floating point.  */
 +#define WIDEST_HARDWARE_FP_SIZE 32
-+
-+/* Disable libgcc2 support for double-precision floating point.  */
-+#define LIBGCC2_HAS_DF_MODE     0
 +
 +/* Define this macro if it is advisable to hold scalars in registers
 +   in a wider mode than that declared by the program.  In such cases,
@@ -6104,7 +6101,7 @@ diff -Naur gcc-4.9.4-pure/libgcc/config.host gcc-4.9.4/libgcc/config.host
  	md_unwind_header=tilepro/linux-unwind.h
          ;;
 +v810*-*-*)
-+	tmake_file="${tmake_file} v810/t-v810 t-fpbit"
++	tmake_file="${tmake_file} v810/t-v810 t-fdpbit"
 +	;;
  v850*-*-*)
  	tmake_file="${tmake_file} v850/t-v850 t-fdpbit"
