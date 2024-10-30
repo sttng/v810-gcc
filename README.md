@@ -101,3 +101,22 @@ Clean up the temporary directories.
 ```
 ./build_compiler.sh clean
 ```
+
+
+## Notes for building on macOS
+
+macOS uses clang and not gcc, so you need to get his first.
+
+Install the GNU Compiler Collection (GCC) with:
+```
+brew install gcc
+```
+
+Setup symbolic links to GCC:
+
+```
+ln -s /usr/local/bin/g++-${VERSION} /usr/local/bin/g++
+ln -s /usr/local/bin/gcc-${VERSION} /usr/local/bin/gcc
+```
+
+
