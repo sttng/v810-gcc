@@ -42,7 +42,7 @@ fi
 
 cd $GITDIR/build/binutils
 
-make --jobs=$(nproc) all 2>&1 | tee binutils_make.log
+make --jobs=4 all 2>&1 | tee binutils_make.log
 
 if [ $? != 0 ]; then
   echo "Error: building binutils";
