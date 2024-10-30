@@ -119,4 +119,6 @@ ln -s /usr/local/bin/g++-${VERSION} /usr/local/bin/g++
 ln -s /usr/local/bin/gcc-${VERSION} /usr/local/bin/gcc
 ```
 
+You can remove ```rm``` the symlinks later to switch back to clang.
+
 
